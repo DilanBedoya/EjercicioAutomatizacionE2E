@@ -1,0 +1,677 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html lang="en"&gt;<br/>
+ &lt;head&gt;<br/>
+  &lt;style class="vjs-styles-defaults"&gt;<br/>
+      .video-js {<br/>
+        width: 300px;<br/>
+        height: 150px;<br/>
+      }<br/>
+<br/>
+      .vjs-fluid {<br/>
+        padding-top: 56.25%<br/>
+      }<br/>
+    &lt;/style&gt;<br/>
+  &lt;style class="vjs-styles-dimensions"&gt;<br/>
+      .example-video-dimensions {<br/>
+        width: 400px;<br/>
+        height: 320px;<br/>
+      }<br/>
+<br/>
+      .example-video-dimensions.vjs-fluid {<br/>
+        padding-top: 56.25%;<br/>
+      }<br/>
+    &lt;/style&gt;<br/>
+  &lt;meta charset="utf-8"&gt;<br/>
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;<br/>
+  &lt;meta name="description" content=""&gt;<br/>
+  &lt;meta name="author" content=""&gt;<br/>
+  &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;<br/>
+  &lt;link rel="icon" href="favicon.ico"&gt;<br/>
+  &lt;title&gt;STORE&lt;/title&gt;<br/>
+  &lt;link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"&gt;<br/>
+  &lt;link href="node_modules/video.js/dist/video-js.min.css" rel="stylesheet"&gt;<br/>
+  &lt;link href="css/latofonts.css" rel="stylesheet" type="text/css"&gt;<br/>
+  &lt;link href="css/latostyle.css" rel="stylesheet" type="text/css"&gt;<br/>
+  &lt;style&gt;<br/>
+    .navbar-toggler {<br/>
+      z-index: 1;<br/>
+    }<br/>
+<br/>
+    @media (max-width: 800px) {<br/>
+      #carouselExampleIndicators {<br/>
+        display: none;<br/>
+      }<br/>
+    }<br/>
+<br/>
+    /* Temporary fix for img-fluid sizing within the carousel */<br/>
+<br/>
+    .carousel-item.active,<br/>
+    .carousel-item-next,<br/>
+    .carousel-item-prev {<br/>
+      display: block;<br/>
+    }<br/>
+<br/>
+    body {<br/>
+      font-size: 11pt;<br/>
+      /*padding-top: 50px;*/<br/>
+      color: #868688;<br/>
+      background-color: #FAFCFF;<br/>
+    }<br/>
+<br/>
+    nav {<br/>
+      /*background-color: #e7e7e7*/<br/>
+      background: rgba(135, 15, 93, 1);<br/>
+      background: -moz-linear-gradient(left, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      background: -webkit-gradient(left top, right top, color-stop(0%, rgba(135, 15, 93, 1)), color-stop(19%, rgba(135, 15, 93, 1)), color-stop(55%, rgba(63, 41, 133, 1)), color-stop(100%, rgba(40, 17, 115, 1)));<br/>
+      background: -webkit-linear-gradient(left, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      background: -o-linear-gradient(left, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      background: -ms-linear-gradient(left, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      background: linear-gradient(to right, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#870f5d', endColorstr='#281173', GradientType=1);<br/>
+    }<br/>
+<br/>
+    /*      .fixed-top{<br/>
+        position:absolute;<br/>
+<br/>
+      } */<br/>
+<br/>
+    #footc {<br/>
+      padding-bottom: 3rem;<br/>
+      padding-top: 3rem;<br/>
+      /*background-color: #e7e7e7*/<br/>
+      background: rgba(135, 15, 93, 1);<br/>
+      background: -moz-linear-gradient(left, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      background: -webkit-gradient(left top, right top, color-stop(0%, rgba(135, 15, 93, 1)), color-stop(19%, rgba(135, 15, 93, 1)), color-stop(55%, rgba(63, 41, 133, 1)), color-stop(100%, rgba(40, 17, 115, 1)));<br/>
+      background: -webkit-linear-gradient(left, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      background: -o-linear-gradient(left, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      background: -ms-linear-gradient(left, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      background: linear-gradient(to right, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#870f5d', endColorstr='#281173', GradientType=1);<br/>
+      color: white;<br/>
+    }<br/>
+<br/>
+    #cat {<br/>
+      /*background-color: #e7e7e7*/<br/>
+      background: rgba(135, 15, 93, 1);<br/>
+      background: -moz-linear-gradient(left, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      background: -webkit-gradient(left top, right top, color-stop(0%, rgba(135, 15, 93, 1)), color-stop(19%, rgba(135, 15, 93, 1)), color-stop(55%, rgba(63, 41, 133, 1)), color-stop(100%, rgba(40, 17, 115, 1)));<br/>
+      background: -webkit-linear-gradient(left, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      background: -o-linear-gradient(left, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      background: -ms-linear-gradient(left, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      background: linear-gradient(to right, rgba(135, 15, 93, 1) 0%, rgba(135, 15, 93, 1) 19%, rgba(63, 41, 133, 1) 55%, rgba(40, 17, 115, 1) 100%);<br/>
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#870f5d', endColorstr='#281173', GradientType=1);<br/>
+      color: white;<br/>
+      /*font-family: Lato;*/<br/>
+      font-size: 25px;<br/>
+      font-weight: bold;<br/>
+      /*font-style: normal;*/<br/>
+      /*font-variant: normal;*/<br/>
+    }<br/>
+<br/>
+    nav a {<br/>
+      color: white;<br/>
+      /*font-family: Lato;*/<br/>
+      font-size: 16px;<br/>
+      font-weight: bold;<br/>
+      /*color: #868688;*/<br/>
+    }<br/>
+<br/>
+    #itemc {<br/>
+      /*color:white;*/<br/>
+      /*font-family: Lato;*/<br/>
+      font-size: 20px;<br/>
+      font-weight: bold;<br/>
+      color: #666;<br/>
+    }<br/>
+<br/>
+    nav a:hover {<br/>
+      color: #21E8CB;<br/>
+      text-decoration: none;<br/>
+    }<br/>
+<br/>
+    #nava {<br/>
+      color: white;<br/>
+      text-decoration: none;<br/>
+    }<br/>
+<br/>
+    .navbar-toggle .icon-bar {<br/>
+      background-color: #868688;<br/>
+    }<br/>
+<br/>
+    .starter-template {<br/>
+      padding: 40px 15px;<br/>
+      text-align: center;<br/>
+    }<br/>
+<br/>
+    .video-js {<br/>
+      margin: 0 auto;<br/>
+    }<br/>
+<br/>
+    input {<br/>
+      margin-top: 15px;<br/>
+      min-width: 450px;<br/>
+      padding: 5px;<br/>
+    }<br/>
+<br/>
+    #next2 {<br/>
+      cursor: pointer;<br/>
+      float: right;<br/>
+    }<br/>
+<br/>
+    .navbar-toggleable-md&gt;.container {<br/>
+      align-self: flex-start;<br/>
+    }<br/>
+<br/>
+    #carouselExampleIndicators {<br/>
+<br/>
+      /*width: 86%;*/<br/>
+      margin-left: 2%;<br/>
+      -webkit-box-shadow: 0px 11px 5px -1px rgba(0, 0, 0, 0.31);<br/>
+      -moz-box-shadow: 0px 11px 5px -1px rgba(0, 0, 0, 0.31);<br/>
+      box-shadow: 0px 11px 5px -1px rgba(0, 0, 0, 0.31);<br/>
+    }<br/>
+<br/>
+    #contcar {<br/>
+      position: absolute;<br/>
+      display: block;<br/>
+      left: calc(50% - 400px);<br/>
+      top: 22%;<br/>
+      z-index: 2;<br/>
+      margin-left: auto !important;<br/>
+      margin-right: auto;<br/>
+      align-items: center !important;<br/>
+      width: 800px;<br/>
+    }<br/>
+<br/>
+<br/>
+    .carousel-control-prev {<br/>
+      left: -10%;<br/>
+    }<br/>
+<br/>
+    .carousel-control-next {<br/>
+      right: -10%;<br/>
+    }<br/>
+<br/>
+    #contcont {<br/>
+      margin-top: 6%;<br/>
+    }<br/>
+<br/>
+    #article {<br/>
+      line-height: 1.5rem;<br/>
+      height: 4.7rem;<br/>
+      overflow: hidden;<br/>
+      text-overflow: -o-ellipsis-lastline;<br/>
+    }<br/>
+<br/>
+    h2.grrrr {<br/>
+      display: table;<br/>
+      white-space: nowrap;<br/>
+<br/>
+      &:after {<br/>
+        border-top: 3px solid black;<br/>
+        content: '';<br/>
+        display: table-cell;<br/>
+        position: relative;<br/>
+        top: 0.8em;<br/>
+        width: 30%;<br/>
+      }<br/>
+<br/>
+      &:after {<br/>
+        left: 1.5%;<br/>
+      }<br/>
+    }<br/>
+<br/>
+    h4.grrrr {<br/>
+      position: relative;<br/>
+      overflow: hidden;<br/>
+    }<br/>
+<br/>
+<br/>
+    h4.grrrr:after {<br/>
+      display: inline-block;<br/>
+      content: "";<br/>
+      height: 2px;<br/>
+      background: white;<br/>
+      position: absolute;<br/>
+      width: 22%;<br/>
+      top: 50%;<br/>
+      margin-top: 2px;<br/>
+      margin-left: 15px;<br/>
+    }<br/>
+<br/>
+    .py-5 {<br/>
+      padding-bottom: 1rem !important;<br/>
+      padding-top: 1rem !important;<br/>
+    }<br/>
+<br/>
+    #fotcont {<br/>
+      margin-left: 10%;<br/>
+    }<br/>
+<br/>
+    .slide-image {<br/>
+      width: 100%;<br/>
+    }<br/>
+<br/>
+    .carousel-holder {<br/>
+      margin-bottom: 30px;<br/>
+    }<br/>
+<br/>
+    .carousel-control,<br/>
+    .item {<br/>
+      border-radius: 4px;<br/>
+    }<br/>
+<br/>
+    /*#divcarcont{<br/>
+  align-self: flex-end;<br/>
+}*/<br/>
+<br/>
+    html,<br/>
+    body {<br/>
+      max-width: 100%;<br/>
+      overflow-x: hidden;<br/>
+      padding: 0px !important;<br/>
+    }<br/>
+<br/>
+    .navbar-nav {<br/>
+      display: flex;<br/>
+    }<br/>
+<br/>
+    .navbar-toggleable-md .navbar-nav {<br/>
+      -moz-box-direction: normal;<br/>
+      -moz-box-orient: horizontal;<br/>
+      flex-direction: row;<br/>
+    }<br/>
+<br/>
+    .ml-auto {<br/>
+      margin-left: auto !important;<br/>
+    }<br/>
+<br/>
+    .navbar-collapse {<br/>
+      flex-basis: 44% !important;<br/>
+    }<br/>
+<br/>
+    .navbar-brand {<br/>
+      margin-right: 20rem;<br/>
+    }<br/>
+<br/>
+    .navbar-toggleable-md .navbar-nav .nav-link {<br/>
+      padding-left: 0.5rem;<br/>
+      padding-right: 0.5rem;<br/>
+    }<br/>
+<br/>
+    .navbar-toggleable-md .navbar-collapse {<br/>
+      /*display: contents;*/<br/>
+      width: 100%;<br/>
+    }<br/>
+<br/>
+    #narvbarx {<br/>
+      align-items: baseline !important;<br/>
+    }<br/>
+  &lt;/style&gt;<br/>
+ &lt;/head&gt;<br/>
+ &lt;body&gt;&lt;!-- modal --&gt;<br/>
+  &lt;div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"&gt;<br/>
+   &lt;div class="modal-dialog" role="document"&gt;<br/>
+    &lt;div class="modal-content"&gt;<br/>
+     &lt;div class="modal-header"&gt;<br/>
+      &lt;h5 class="modal-title" id="exampleModalLabel"&gt;New message&lt;/h5&gt;&lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt; &lt;span aria-hidden="true"&gt;×&lt;/span&gt; &lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="modal-body"&gt;<br/>
+      &lt;form&gt;<br/>
+       &lt;div class="form-group"&gt;&lt;label for="recipient-name" class="form-control-label"&gt;Contact Email:&lt;/label&gt; &lt;input type="text" class="form-control" id="recipient-email"&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="form-group"&gt;&lt;label for="recipient-name" class="form-control-label"&gt;Contact Name:&lt;/label&gt; &lt;input type="text" class="form-control" id="recipient-name"&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="form-group"&gt;&lt;label for="message-text" class="form-control-label"&gt;Message:&lt;/label&gt; &lt;textarea class="form-control" id="message-text"&gt;&lt;/textarea&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/form&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="modal-footer"&gt;&lt;button type="button" class="btn btn-secondary" data-dismiss="modal"&gt;Close&lt;/button&gt; &lt;button type="button" onclick="send()" class="btn btn-primary"&gt;Send message&lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt;&lt;!-- end modal --&gt; &lt;!-- modal SignIn --&gt;<br/>
+  &lt;div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModalLabel" aria-hidden="true"&gt;<br/>
+   &lt;div class="modal-dialog" role="document"&gt;<br/>
+    &lt;div class="modal-content"&gt;<br/>
+     &lt;div class="modal-header"&gt;<br/>
+      &lt;h5 class="modal-title" id="signInModalLabel"&gt;Sign up&lt;/h5&gt;&lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt; &lt;span aria-hidden="true"&gt;×&lt;/span&gt; &lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="modal-body"&gt;<br/>
+      &lt;form&gt;<br/>
+       &lt;div class="form-group"&gt;&lt;label for="sign-username" class="form-control-label"&gt;Username:&lt;/label&gt; &lt;input type="text" class="form-control" id="sign-username"&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="form-group"&gt;&lt;label for="sign-password" class="form-control-label"&gt;Password:&lt;/label&gt; &lt;input type="password" class="form-control" id="sign-password"&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="form-group"&gt;&lt;label id="errors" style="color:red" class="form-control-label"&gt;&lt;/label&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/form&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="modal-footer"&gt;&lt;button type="button" class="btn btn-secondary" data-dismiss="modal"&gt;Close&lt;/button&gt; &lt;button type="button" onclick="register()" class="btn btn-primary"&gt;Sign up&lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt;&lt;!-- end modal --&gt; &lt;!-- modal logIn --&gt;<br/>
+  &lt;div class="modal fade" id="logInModal" tabindex="-1" role="dialog" aria-labelledby="logInModalLabel" aria-hidden="true"&gt;<br/>
+   &lt;div class="modal-dialog" role="document"&gt;<br/>
+    &lt;div class="modal-content"&gt;<br/>
+     &lt;div class="modal-header"&gt;<br/>
+      &lt;h5 class="modal-title" id="logInModalLabel"&gt;Log in&lt;/h5&gt;&lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt; &lt;span aria-hidden="true"&gt;×&lt;/span&gt; &lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="modal-body"&gt;<br/>
+      &lt;form&gt;<br/>
+       &lt;div class="form-group"&gt;&lt;label for="log-name" class="form-control-label"&gt;Username:&lt;/label&gt; &lt;input type="text" class="form-control" id="loginusername"&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="form-group"&gt;&lt;label for="log-pass" class="form-control-label"&gt;Password:&lt;/label&gt; &lt;input type="password" class="form-control" id="loginpassword"&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="form-group"&gt;&lt;label for="log-pass" id="errorl" class="form-control-label"&gt;&lt;/label&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/form&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="modal-footer"&gt;&lt;button type="button" class="btn btn-secondary" data-dismiss="modal"&gt;Close&lt;/button&gt; &lt;button type="button" onclick="logIn()" class="btn btn-primary"&gt;Log in&lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt;&lt;!-- end modal --&gt; &lt;!-- modal video --&gt;<br/>
+  &lt;div class="modal fade" id="videoModal" role="dialog"&gt;<br/>
+   &lt;div class="modal-dialog"&gt;<br/>
+    &lt;div class="modal-content"&gt;<br/>
+     &lt;div class="modal-header"&gt;<br/>
+      &lt;h5 class="modal-title" id="videoModalLabel"&gt;About us&lt;/h5&gt;&lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt; &lt;span aria-hidden="true"&gt;×&lt;/span&gt; &lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="modal-body"&gt;<br/>
+      &lt;form&gt;<br/>
+       &lt;div class="form-group"&gt;<br/>
+        &lt;div class="video-js vjs-paused example-video-dimensions vjs-controls-enabled vjs-workinghover vjs-v7 vjs-user-active" id="example-video" poster="imgs/front.jpg" tabindex="-1" role="region" lang="en" aria-label="Video Player"&gt;<br/>
+         &lt;video poster="imgs/front.jpg" id="example-video_html5_api" class="vjs-tech" tabindex="-1" role="application" src="blob:https://www.demoblaze.com/8667bb7f-9d5d-4799-a855-7b135e743b67"&gt;<br/>
+         &lt;/video&gt;<br/>
+         &lt;div class="vjs-poster" tabindex="-1" aria-disabled="false" style="background-image: url(&quot;imgs/front.jpg&quot;);"&gt;&lt;/div&gt;<br/>
+         &lt;div class="vjs-text-track-display" aria-live="off" aria-atomic="true"&gt;<br/>
+          &lt;div style="position: absolute; inset: 0px; margin: 1.5%;"&gt;&lt;/div&gt;<br/>
+         &lt;/div&gt;<br/>
+         &lt;div class="vjs-loading-spinner" dir="ltr"&gt;<br/>
+          &lt;span class="vjs-control-text"&gt;Video Player is loading.&lt;/span&gt;<br/>
+         &lt;/div&gt;&lt;button class="vjs-big-play-button" type="button" title="Play Video" aria-disabled="false"&gt;&lt;span aria-hidden="true" class="vjs-icon-placeholder"&gt;&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;Play Video&lt;/span&gt;&lt;/button&gt;<br/>
+         &lt;div class="vjs-control-bar" dir="ltr"&gt;<br/>
+          &lt;button class="vjs-play-control vjs-control vjs-button" type="button" title="Play" aria-disabled="false"&gt;&lt;span aria-hidden="true" class="vjs-icon-placeholder"&gt;&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;Play&lt;/span&gt;&lt;/button&gt;<br/>
+          &lt;div class="vjs-volume-panel vjs-control vjs-volume-panel-horizontal"&gt;<br/>
+           &lt;button class="vjs-mute-control vjs-control vjs-button vjs-vol-3" type="button" title="Mute" aria-disabled="false"&gt;&lt;span aria-hidden="true" class="vjs-icon-placeholder"&gt;&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;Mute&lt;/span&gt;&lt;/button&gt;<br/>
+           &lt;div class="vjs-volume-control vjs-control vjs-volume-horizontal"&gt;<br/>
+            &lt;div tabindex="0" class="vjs-volume-bar vjs-slider-bar vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Volume Level" aria-live="polite" aria-valuetext="100%"&gt;<br/>
+             &lt;div class="vjs-volume-level"&gt;<br/>
+              &lt;span class="vjs-control-text"&gt;&lt;/span&gt;<br/>
+             &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="vjs-current-time vjs-time-control vjs-control"&gt;<br/>
+           &lt;span class="vjs-control-text" role="presentation"&gt;Current Time&nbsp;&lt;/span&gt;&lt;span class="vjs-current-time-display" aria-live="off" role="presentation"&gt;0:00&lt;/span&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="vjs-time-control vjs-time-divider" aria-hidden="true"&gt;<br/>
+           &lt;div&gt;<br/>
+            &lt;span&gt;/&lt;/span&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="vjs-duration vjs-time-control vjs-control"&gt;<br/>
+           &lt;span class="vjs-control-text" role="presentation"&gt;Duration&nbsp;&lt;/span&gt;&lt;span class="vjs-duration-display" aria-live="off" role="presentation"&gt;18:40&lt;/span&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="vjs-progress-control vjs-control"&gt;<br/>
+           &lt;div tabindex="0" class="vjs-progress-holder vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progress Bar"&gt;<br/>
+            &lt;div class="vjs-load-progress" style="width: 1.07126%;"&gt;<br/>
+             &lt;span class="vjs-control-text"&gt;&lt;span&gt;Loaded&lt;/span&gt;: &lt;span class="vjs-control-text-loaded-percentage"&gt;1.07%&lt;/span&gt;&lt;/span&gt;<br/>
+             &lt;div style="left: 0.193308%; width: 99.8067%;"&gt;&lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+            &lt;div class="vjs-mouse-display"&gt;<br/>
+             &lt;div class="vjs-time-tooltip" aria-hidden="true"&gt;&lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+            &lt;div class="vjs-play-progress vjs-slider-bar" aria-hidden="true"&gt;<br/>
+             &lt;div class="vjs-time-tooltip" aria-hidden="true"&gt;&lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="vjs-live-control vjs-control vjs-hidden"&gt;<br/>
+           &lt;div class="vjs-live-display" aria-live="off"&gt;<br/>
+            &lt;span class="vjs-control-text"&gt;Stream Type&nbsp;&lt;/span&gt;LIVE<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;&lt;button class="vjs-seek-to-live-control vjs-control vjs-at-live-edge" type="button" title="Seek to live, currently playing live" aria-disabled="true"&gt;&lt;span aria-hidden="true" class="vjs-icon-placeholder"&gt;&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;Seek to live, currently playing live&lt;/span&gt;&lt;span class="vjs-seek-to-live-text" aria-hidden="true"&gt;LIVE&lt;/span&gt;&lt;/button&gt;<br/>
+          &lt;div class="vjs-remaining-time vjs-time-control vjs-control"&gt;<br/>
+           &lt;span class="vjs-control-text" role="presentation"&gt;Remaining Time&nbsp;&lt;/span&gt;&lt;span aria-hidden="true"&gt;-&lt;/span&gt;&lt;span class="vjs-remaining-time-display" aria-live="off" role="presentation"&gt;18:40&lt;/span&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="vjs-custom-control-spacer vjs-spacer "&gt;<br/>
+           &nbsp;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"&gt;<br/>
+           &lt;button class="vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Playback Rate" aria-haspopup="true" aria-expanded="false"&gt;&lt;span aria-hidden="true" class="vjs-icon-placeholder"&gt;&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;Playback Rate&lt;/span&gt;&lt;/button&gt;<br/>
+           &lt;div class="vjs-menu"&gt;<br/>
+            &lt;ul class="vjs-menu-content" role="menu"&gt;&lt;/ul&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="vjs-playback-rate-value"&gt;<br/>
+            1x<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="vjs-chapters-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"&gt;<br/>
+           &lt;button class="vjs-chapters-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Chapters" aria-haspopup="true" aria-expanded="false"&gt;&lt;span aria-hidden="true" class="vjs-icon-placeholder"&gt;&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;Chapters&lt;/span&gt;&lt;/button&gt;<br/>
+           &lt;div class="vjs-menu"&gt;<br/>
+            &lt;ul class="vjs-menu-content" role="menu"&gt;<br/>
+             &lt;li class="vjs-menu-title" tabindex="-1"&gt;Chapters&lt;/li&gt;<br/>
+            &lt;/ul&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="vjs-descriptions-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"&gt;<br/>
+           &lt;button class="vjs-descriptions-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Descriptions" aria-haspopup="true" aria-expanded="false"&gt;&lt;span aria-hidden="true" class="vjs-icon-placeholder"&gt;&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;Descriptions&lt;/span&gt;&lt;/button&gt;<br/>
+           &lt;div class="vjs-menu"&gt;<br/>
+            &lt;ul class="vjs-menu-content" role="menu"&gt;<br/>
+             &lt;li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="true"&gt;&lt;span class="vjs-menu-item-text"&gt;descriptions off&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;, selected&lt;/span&gt;&lt;/li&gt;<br/>
+            &lt;/ul&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="vjs-subs-caps-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"&gt;<br/>
+           &lt;button class="vjs-subs-caps-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Captions" aria-haspopup="true" aria-expanded="false"&gt;&lt;span aria-hidden="true" class="vjs-icon-placeholder"&gt;&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;Captions&lt;/span&gt;&lt;/button&gt;<br/>
+           &lt;div class="vjs-menu"&gt;<br/>
+            &lt;ul class="vjs-menu-content" role="menu"&gt;<br/>
+             &lt;li class="vjs-menu-item vjs-texttrack-settings" tabindex="-1" role="menuitem" aria-disabled="false"&gt;&lt;span class="vjs-menu-item-text"&gt;captions settings&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;, opens captions settings dialog&lt;/span&gt;&lt;/li&gt;<br/>
+             &lt;li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="true"&gt;&lt;span class="vjs-menu-item-text"&gt;captions off&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;, selected&lt;/span&gt;&lt;/li&gt;<br/>
+            &lt;/ul&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="vjs-audio-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"&gt;<br/>
+           &lt;button class="vjs-audio-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Audio Track" aria-haspopup="true" aria-expanded="false"&gt;&lt;span aria-hidden="true" class="vjs-icon-placeholder"&gt;&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;Audio Track&lt;/span&gt;&lt;/button&gt;<br/>
+           &lt;div class="vjs-menu"&gt;<br/>
+            &lt;ul class="vjs-menu-content" role="menu"&gt;<br/>
+             &lt;li class="vjs-menu-item vjs-selected vjs-main-menu-item" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="true"&gt;&lt;span class="vjs-menu-item-text"&gt;default&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;, selected&lt;/span&gt;&lt;/li&gt;<br/>
+            &lt;/ul&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;&lt;button class="vjs-picture-in-picture-control vjs-control vjs-button" type="button" title="Picture-in-Picture" aria-disabled="false"&gt;&lt;span aria-hidden="true" class="vjs-icon-placeholder"&gt;&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;Picture-in-Picture&lt;/span&gt;&lt;/button&gt;&lt;button class="vjs-fullscreen-control vjs-control vjs-button" type="button" title="Fullscreen" aria-disabled="false"&gt;&lt;span aria-hidden="true" class="vjs-icon-placeholder"&gt;&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;Fullscreen&lt;/span&gt;&lt;/button&gt;<br/>
+         &lt;/div&gt;<br/>
+         &lt;div class="vjs-error-display vjs-modal-dialog vjs-hidden " tabindex="-1" aria-describedby="example-video_component_425_description" aria-hidden="true" aria-label="Modal Window" role="dialog"&gt;<br/>
+          &lt;p class="vjs-modal-dialog-description vjs-control-text" id="example-video_component_425_description"&gt;This is a modal window.&lt;/p&gt;<br/>
+          &lt;div class="vjs-modal-dialog-content" role="document"&gt;&lt;/div&gt;<br/>
+         &lt;/div&gt;<br/>
+         &lt;div class="vjs-modal-dialog vjs-hidden  vjs-text-track-settings" tabindex="-1" aria-describedby="example-video_component_430_description" aria-hidden="true" aria-label="Caption Settings Dialog" role="dialog"&gt;<br/>
+          &lt;p class="vjs-modal-dialog-description vjs-control-text" id="example-video_component_430_description"&gt;Beginning of dialog window. Escape will cancel and close the window.&lt;/p&gt;<br/>
+          &lt;div class="vjs-modal-dialog-content" role="document"&gt;<br/>
+           &lt;div class="vjs-track-settings-colors"&gt;<br/>
+            &lt;fieldset class="vjs-fg-color vjs-track-setting"&gt;<br/>
+             &lt;legend id="captions-text-legend-example-video_component_430"&gt;Text&lt;/legend&gt;&lt;label id="captions-foreground-color-example-video_component_430" class="vjs-label"&gt;Color&lt;/label&gt;&lt;select aria-labelledby="captions-text-legend-example-video_component_430 captions-foreground-color-example-video_component_430"&gt;&lt;option id="captions-foreground-color-example-video_component_430-White" value="#FFF" aria-labelledby="captions-text-legend-example-video_component_430 captions-foreground-color-example-video_component_430 captions-foreground-color-example-video_component_430-White"&gt;White&lt;/option&gt;&lt;option id="captions-foreground-color-example-video_component_430-Black" value="#000" aria-labelledby="captions-text-legend-example-video_component_430 captions-foreground-color-example-video_component_430 captions-foreground-color-example-video_component_430-Black"&gt;Black&lt;/option&gt;&lt;option id="captions-foreground-color-example-video_component_430-Red" value="#F00" aria-labelledby="captions-text-legend-example-video_component_430 captions-foreground-color-example-video_component_430 captions-foreground-color-example-video_component_430-Red"&gt;Red&lt;/option&gt;&lt;option id="captions-foreground-color-example-video_component_430-Green" value="#0F0" aria-labelledby="captions-text-legend-example-video_component_430 captions-foreground-color-example-video_component_430 captions-foreground-color-example-video_component_430-Green"&gt;Green&lt;/option&gt;&lt;option id="captions-foreground-color-example-video_component_430-Blue" value="#00F" aria-labelledby="captions-text-legend-example-video_component_430 captions-foreground-color-example-video_component_430 captions-foreground-color-example-video_component_430-Blue"&gt;Blue&lt;/option&gt;&lt;option id="captions-foreground-color-example-video_component_430-Yellow" value="#FF0" aria-labelledby="captions-text-legend-example-video_component_430 captions-foreground-color-example-video_component_430 captions-foreground-color-example-video_component_430-Yellow"&gt;Yellow&lt;/option&gt;&lt;option id="captions-foreground-color-example-video_component_430-Magenta" value="#F0F" aria-labelledby="captions-text-legend-example-video_component_430 captions-foreground-color-example-video_component_430 captions-foreground-color-example-video_component_430-Magenta"&gt;Magenta&lt;/option&gt;&lt;option id="captions-foreground-color-example-video_component_430-Cyan" value="#0FF" aria-labelledby="captions-text-legend-example-video_component_430 captions-foreground-color-example-video_component_430 captions-foreground-color-example-video_component_430-Cyan"&gt;Cyan&lt;/option&gt;&lt;/select&gt;&lt;span class="vjs-text-opacity vjs-opacity"&gt;&lt;label id="captions-foreground-opacity-example-video_component_430" class="vjs-label"&gt;Transparency&lt;/label&gt;&lt;select aria-labelledby="captions-text-legend-example-video_component_430 captions-foreground-opacity-example-video_component_430"&gt;&lt;option id="captions-foreground-opacity-example-video_component_430-Opaque" value="1" aria-labelledby="captions-text-legend-example-video_component_430 captions-foreground-opacity-example-video_component_430 captions-foreground-opacity-example-video_component_430-Opaque"&gt;Opaque&lt;/option&gt;&lt;option id="captions-foreground-opacity-example-video_component_430-SemiTransparent" value="0.5" aria-labelledby="captions-text-legend-example-video_component_430 captions-foreground-opacity-example-video_component_430 captions-foreground-opacity-example-video_component_430-SemiTransparent"&gt;Semi-Transparent&lt;/option&gt;&lt;/select&gt;&lt;/span&gt;<br/>
+            &lt;/fieldset&gt;<br/>
+            &lt;fieldset class="vjs-bg-color vjs-track-setting"&gt;<br/>
+             &lt;legend id="captions-background-example-video_component_430"&gt;Background&lt;/legend&gt;&lt;label id="captions-background-color-example-video_component_430" class="vjs-label"&gt;Color&lt;/label&gt;&lt;select aria-labelledby="captions-background-example-video_component_430 captions-background-color-example-video_component_430"&gt;&lt;option id="captions-background-color-example-video_component_430-Black" value="#000" aria-labelledby="captions-background-example-video_component_430 captions-background-color-example-video_component_430 captions-background-color-example-video_component_430-Black"&gt;Black&lt;/option&gt;&lt;option id="captions-background-color-example-video_component_430-White" value="#FFF" aria-labelledby="captions-background-example-video_component_430 captions-background-color-example-video_component_430 captions-background-color-example-video_component_430-White"&gt;White&lt;/option&gt;&lt;option id="captions-background-color-example-video_component_430-Red" value="#F00" aria-labelledby="captions-background-example-video_component_430 captions-background-color-example-video_component_430 captions-background-color-example-video_component_430-Red"&gt;Red&lt;/option&gt;&lt;option id="captions-background-color-example-video_component_430-Green" value="#0F0" aria-labelledby="captions-background-example-video_component_430 captions-background-color-example-video_component_430 captions-background-color-example-video_component_430-Green"&gt;Green&lt;/option&gt;&lt;option id="captions-background-color-example-video_component_430-Blue" value="#00F" aria-labelledby="captions-background-example-video_component_430 captions-background-color-example-video_component_430 captions-background-color-example-video_component_430-Blue"&gt;Blue&lt;/option&gt;&lt;option id="captions-background-color-example-video_component_430-Yellow" value="#FF0" aria-labelledby="captions-background-example-video_component_430 captions-background-color-example-video_component_430 captions-background-color-example-video_component_430-Yellow"&gt;Yellow&lt;/option&gt;&lt;option id="captions-background-color-example-video_component_430-Magenta" value="#F0F" aria-labelledby="captions-background-example-video_component_430 captions-background-color-example-video_component_430 captions-background-color-example-video_component_430-Magenta"&gt;Magenta&lt;/option&gt;&lt;option id="captions-background-color-example-video_component_430-Cyan" value="#0FF" aria-labelledby="captions-background-example-video_component_430 captions-background-color-example-video_component_430 captions-background-color-example-video_component_430-Cyan"&gt;Cyan&lt;/option&gt;&lt;/select&gt;&lt;span class="vjs-bg-opacity vjs-opacity"&gt;&lt;label id="captions-background-opacity-example-video_component_430" class="vjs-label"&gt;Transparency&lt;/label&gt;&lt;select aria-labelledby="captions-background-example-video_component_430 captions-background-opacity-example-video_component_430"&gt;&lt;option id="captions-background-opacity-example-video_component_430-Opaque" value="1" aria-labelledby="captions-background-example-video_component_430 captions-background-opacity-example-video_component_430 captions-background-opacity-example-video_component_430-Opaque"&gt;Opaque&lt;/option&gt;&lt;option id="captions-background-opacity-example-video_component_430-SemiTransparent" value="0.5" aria-labelledby="captions-background-example-video_component_430 captions-background-opacity-example-video_component_430 captions-background-opacity-example-video_component_430-SemiTransparent"&gt;Semi-Transparent&lt;/option&gt;&lt;option id="captions-background-opacity-example-video_component_430-Transparent" value="0" aria-labelledby="captions-background-example-video_component_430 captions-background-opacity-example-video_component_430 captions-background-opacity-example-video_component_430-Transparent"&gt;Transparent&lt;/option&gt;&lt;/select&gt;&lt;/span&gt;<br/>
+            &lt;/fieldset&gt;<br/>
+            &lt;fieldset class="vjs-window-color vjs-track-setting"&gt;<br/>
+             &lt;legend id="captions-window-example-video_component_430"&gt;Window&lt;/legend&gt;&lt;label id="captions-window-color-example-video_component_430" class="vjs-label"&gt;Color&lt;/label&gt;&lt;select aria-labelledby="captions-window-example-video_component_430 captions-window-color-example-video_component_430"&gt;&lt;option id="captions-window-color-example-video_component_430-Black" value="#000" aria-labelledby="captions-window-example-video_component_430 captions-window-color-example-video_component_430 captions-window-color-example-video_component_430-Black"&gt;Black&lt;/option&gt;&lt;option id="captions-window-color-example-video_component_430-White" value="#FFF" aria-labelledby="captions-window-example-video_component_430 captions-window-color-example-video_component_430 captions-window-color-example-video_component_430-White"&gt;White&lt;/option&gt;&lt;option id="captions-window-color-example-video_component_430-Red" value="#F00" aria-labelledby="captions-window-example-video_component_430 captions-window-color-example-video_component_430 captions-window-color-example-video_component_430-Red"&gt;Red&lt;/option&gt;&lt;option id="captions-window-color-example-video_component_430-Green" value="#0F0" aria-labelledby="captions-window-example-video_component_430 captions-window-color-example-video_component_430 captions-window-color-example-video_component_430-Green"&gt;Green&lt;/option&gt;&lt;option id="captions-window-color-example-video_component_430-Blue" value="#00F" aria-labelledby="captions-window-example-video_component_430 captions-window-color-example-video_component_430 captions-window-color-example-video_component_430-Blue"&gt;Blue&lt;/option&gt;&lt;option id="captions-window-color-example-video_component_430-Yellow" value="#FF0" aria-labelledby="captions-window-example-video_component_430 captions-window-color-example-video_component_430 captions-window-color-example-video_component_430-Yellow"&gt;Yellow&lt;/option&gt;&lt;option id="captions-window-color-example-video_component_430-Magenta" value="#F0F" aria-labelledby="captions-window-example-video_component_430 captions-window-color-example-video_component_430 captions-window-color-example-video_component_430-Magenta"&gt;Magenta&lt;/option&gt;&lt;option id="captions-window-color-example-video_component_430-Cyan" value="#0FF" aria-labelledby="captions-window-example-video_component_430 captions-window-color-example-video_component_430 captions-window-color-example-video_component_430-Cyan"&gt;Cyan&lt;/option&gt;&lt;/select&gt;&lt;span class="vjs-window-opacity vjs-opacity"&gt;&lt;label id="captions-window-opacity-example-video_component_430" class="vjs-label"&gt;Transparency&lt;/label&gt;&lt;select aria-labelledby="captions-window-example-video_component_430 captions-window-opacity-example-video_component_430"&gt;&lt;option id="captions-window-opacity-example-video_component_430-Transparent" value="0" aria-labelledby="captions-window-example-video_component_430 captions-window-opacity-example-video_component_430 captions-window-opacity-example-video_component_430-Transparent"&gt;Transparent&lt;/option&gt;&lt;option id="captions-window-opacity-example-video_component_430-SemiTransparent" value="0.5" aria-labelledby="captions-window-example-video_component_430 captions-window-opacity-example-video_component_430 captions-window-opacity-example-video_component_430-SemiTransparent"&gt;Semi-Transparent&lt;/option&gt;&lt;option id="captions-window-opacity-example-video_component_430-Opaque" value="1" aria-labelledby="captions-window-example-video_component_430 captions-window-opacity-example-video_component_430 captions-window-opacity-example-video_component_430-Opaque"&gt;Opaque&lt;/option&gt;&lt;/select&gt;&lt;/span&gt;<br/>
+            &lt;/fieldset&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="vjs-track-settings-font"&gt;<br/>
+            &lt;fieldset class="vjs-font-percent vjs-track-setting"&gt;<br/>
+             &lt;legend id="captions-font-size-example-video_component_430" class=""&gt;Font Size&lt;/legend&gt;&lt;select aria-labelledby="captions-font-size-example-video_component_430"&gt;&lt;option id="captions-font-size-example-video_component_430-50" value="0.50" aria-labelledby="captions-font-size-example-video_component_430 captions-font-size-example-video_component_430-50"&gt;50%&lt;/option&gt;&lt;option id="captions-font-size-example-video_component_430-75" value="0.75" aria-labelledby="captions-font-size-example-video_component_430 captions-font-size-example-video_component_430-75"&gt;75%&lt;/option&gt;&lt;option id="captions-font-size-example-video_component_430-100" value="1.00" aria-labelledby="captions-font-size-example-video_component_430 captions-font-size-example-video_component_430-100"&gt;100%&lt;/option&gt;&lt;option id="captions-font-size-example-video_component_430-125" value="1.25" aria-labelledby="captions-font-size-example-video_component_430 captions-font-size-example-video_component_430-125"&gt;125%&lt;/option&gt;&lt;option id="captions-font-size-example-video_component_430-150" value="1.50" aria-labelledby="captions-font-size-example-video_component_430 captions-font-size-example-video_component_430-150"&gt;150%&lt;/option&gt;&lt;option id="captions-font-size-example-video_component_430-175" value="1.75" aria-labelledby="captions-font-size-example-video_component_430 captions-font-size-example-video_component_430-175"&gt;175%&lt;/option&gt;&lt;option id="captions-font-size-example-video_component_430-200" value="2.00" aria-labelledby="captions-font-size-example-video_component_430 captions-font-size-example-video_component_430-200"&gt;200%&lt;/option&gt;&lt;option id="captions-font-size-example-video_component_430-300" value="3.00" aria-labelledby="captions-font-size-example-video_component_430 captions-font-size-example-video_component_430-300"&gt;300%&lt;/option&gt;&lt;option id="captions-font-size-example-video_component_430-400" value="4.00" aria-labelledby="captions-font-size-example-video_component_430 captions-font-size-example-video_component_430-400"&gt;400%&lt;/option&gt;&lt;/select&gt;<br/>
+            &lt;/fieldset&gt;<br/>
+            &lt;fieldset class="vjs-edge-style vjs-track-setting"&gt;<br/>
+             &lt;legend id="example-video_component_430" class=""&gt;Text Edge Style&lt;/legend&gt;&lt;select aria-labelledby="example-video_component_430"&gt;&lt;option id="example-video_component_430-None" value="none" aria-labelledby="example-video_component_430 example-video_component_430-None"&gt;None&lt;/option&gt;&lt;option id="example-video_component_430-Raised" value="raised" aria-labelledby="example-video_component_430 example-video_component_430-Raised"&gt;Raised&lt;/option&gt;&lt;option id="example-video_component_430-Depressed" value="depressed" aria-labelledby="example-video_component_430 example-video_component_430-Depressed"&gt;Depressed&lt;/option&gt;&lt;option id="example-video_component_430-Uniform" value="uniform" aria-labelledby="example-video_component_430 example-video_component_430-Uniform"&gt;Uniform&lt;/option&gt;&lt;option id="example-video_component_430-Dropshadow" value="dropshadow" aria-labelledby="example-video_component_430 example-video_component_430-Dropshadow"&gt;Dropshadow&lt;/option&gt;&lt;/select&gt;<br/>
+            &lt;/fieldset&gt;<br/>
+            &lt;fieldset class="vjs-font-family vjs-track-setting"&gt;<br/>
+             &lt;legend id="captions-font-family-example-video_component_430" class=""&gt;Font Family&lt;/legend&gt;&lt;select aria-labelledby="captions-font-family-example-video_component_430"&gt;&lt;option id="captions-font-family-example-video_component_430-ProportionalSansSerif" value="proportionalSansSerif" aria-labelledby="captions-font-family-example-video_component_430 captions-font-family-example-video_component_430-ProportionalSansSerif"&gt;Proportional Sans-Serif&lt;/option&gt;&lt;option id="captions-font-family-example-video_component_430-MonospaceSansSerif" value="monospaceSansSerif" aria-labelledby="captions-font-family-example-video_component_430 captions-font-family-example-video_component_430-MonospaceSansSerif"&gt;Monospace Sans-Serif&lt;/option&gt;&lt;option id="captions-font-family-example-video_component_430-ProportionalSerif" value="proportionalSerif" aria-labelledby="captions-font-family-example-video_component_430 captions-font-family-example-video_component_430-ProportionalSerif"&gt;Proportional Serif&lt;/option&gt;&lt;option id="captions-font-family-example-video_component_430-MonospaceSerif" value="monospaceSerif" aria-labelledby="captions-font-family-example-video_component_430 captions-font-family-example-video_component_430-MonospaceSerif"&gt;Monospace Serif&lt;/option&gt;&lt;option id="captions-font-family-example-video_component_430-Casual" value="casual" aria-labelledby="captions-font-family-example-video_component_430 captions-font-family-example-video_component_430-Casual"&gt;Casual&lt;/option&gt;&lt;option id="captions-font-family-example-video_component_430-Script" value="script" aria-labelledby="captions-font-family-example-video_component_430 captions-font-family-example-video_component_430-Script"&gt;Script&lt;/option&gt;&lt;option id="captions-font-family-example-video_component_430-SmallCaps" value="small-caps" aria-labelledby="captions-font-family-example-video_component_430 captions-font-family-example-video_component_430-SmallCaps"&gt;Small Caps&lt;/option&gt;&lt;/select&gt;<br/>
+            &lt;/fieldset&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="vjs-track-settings-controls"&gt;<br/>
+            &lt;button type="button" class="vjs-default-button" title="restore all settings to the default values"&gt;Reset&lt;span class="vjs-control-text"&gt; restore all settings to the default values&lt;/span&gt;&lt;/button&gt;&lt;button type="button" class="vjs-done-button"&gt;Done&lt;/button&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;&lt;button class="vjs-close-button vjs-control vjs-button" type="button" aria-disabled="false" title="Close Modal Dialog"&gt;&lt;span aria-hidden="true" class="vjs-icon-placeholder"&gt;&lt;/span&gt;&lt;span class="vjs-control-text" aria-live="polite"&gt;Close Modal Dialog&lt;/span&gt;&lt;/button&gt;<br/>
+          &lt;p class="vjs-control-text"&gt;End of dialog window.&lt;/p&gt;<br/>
+         &lt;/div&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/form&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="modal-footer"&gt;&lt;button type="button" class="btn btn-secondary" data-dismiss="modal"&gt;Close&lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt;&lt;!-- Navigation --&gt;<br/>
+  &lt;nav style="height:350px" id="narvbarx" class="navbar navbar-toggleable-md bg-inverse"&gt;&lt;button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation"&gt; &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt; &lt;/button&gt; &lt;a class="navbar-brand" id="nava" href="index.html"&gt;&lt;img width="50" height="50" style="margin-right:10px" src="bm.png"&gt; PRODUCT STORE&lt;/a&gt;<br/>
+   &lt;div class="navbar-collapse" id="navbarExample"&gt;<br/>
+    &lt;ul class="navbar-nav ml-auto"&gt;<br/>
+     &lt;li class="nav-item active"&gt;&lt;a class="nav-link" href="index.html"&gt;Home &lt;span class="sr-only"&gt;(current)&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li class="nav-item"&gt;&lt;a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="#"&gt;Contact&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li class="nav-item"&gt;&lt;a class="nav-link" data-toggle="modal" data-target="#videoModal" href="#"&gt;About us&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li class="nav-item"&gt;&lt;a class="nav-link" id="cartur" href="cart.html"&gt;Cart&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="#" id="login2" data-toggle="modal" data-target="#logInModal" style="display: block;"&gt;Log in&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="#" style="display:none" id="logout2" onclick="logOut()"&gt;Log out&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="#" style="display:none" id="nameofuser"&gt;&lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li class="nav-item"&gt;&lt;a class="nav-link" href="#" id="signin2" data-toggle="modal" data-target="#signInModal" style="display: block;"&gt;Sign up&lt;/a&gt;&lt;/li&gt;<br/>
+    &lt;/ul&gt;<br/>
+   &lt;/div&gt;<br/>
+   &lt;div id="contcar" class="lg-9 md-6"&gt;<br/>
+    &lt;div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"&gt;<br/>
+     &lt;ol class="carousel-indicators"&gt;<br/>
+      &lt;li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"&gt;&lt;/li&gt;<br/>
+      &lt;li data-target="#carouselExampleIndicators" data-slide-to="1"&gt;&lt;/li&gt;<br/>
+      &lt;li data-target="#carouselExampleIndicators" data-slide-to="2"&gt;&lt;/li&gt;<br/>
+     &lt;/ol&gt;<br/>
+     &lt;div class="carousel-inner"&gt;<br/>
+      &lt;div class="carousel-item active"&gt;&lt;img class="d-block img-fluid" src="Samsung1.jpg" alt="First slide"&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div class="carousel-item"&gt;&lt;img class="d-block img-fluid" src="nexus1.jpg" alt="Second slide"&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div class="carousel-item"&gt;&lt;img class="d-block img-fluid" src="iphone1.jpg" alt="Third slide"&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;&lt;a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"&gt; &lt;span class="carousel-control-prev-icon" aria-hidden="true"&gt;&lt;/span&gt; &lt;span class="sr-only"&gt;Previous&lt;/span&gt; &lt;/a&gt; &lt;a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"&gt; &lt;span class="carousel-control-next-icon" aria-hidden="true"&gt;&lt;/span&gt; &lt;span class="sr-only"&gt;Next&lt;/span&gt; &lt;/a&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/nav&gt;<br/>
+  &lt;div class="container" id="contcont"&gt;<br/>
+   &lt;div class="row"&gt;<br/>
+    &lt;div class="col-lg-3"&gt;<br/>
+     &lt;div class="list-group"&gt;&lt;a href="" class="list-group-item" id="cat"&gt;CATEGORIES&lt;/a&gt; &lt;a href="#" id="itemc" onclick="byCat('phone')" class="list-group-item"&gt;Phones&lt;/a&gt; &lt;a href="#" id="itemc" onclick="byCat('notebook')" class="list-group-item"&gt;Laptops&lt;/a&gt; &lt;a href="#" id="itemc" onclick="byCat('monitor')" class="list-group-item"&gt;Monitors&lt;/a&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="col-lg-9"&gt;&lt;!-- &lt;div class="container"&gt; --&gt;<br/>
+     &lt;div class="row" id="tbodyid"&gt;<br/>
+      &lt;div class="col-lg-4 col-md-6 mb-4"&gt;<br/>
+       &lt;div class="card h-100"&gt;<br/>
+        &lt;a href="prod.html?idp_=8"&gt;&lt;img class="card-img-top img-fluid" src="imgs/sony_vaio_5.jpg" alt=""&gt;&lt;/a&gt;<br/>
+        &lt;div class="card-block"&gt;<br/>
+         &lt;h4 class="card-title"&gt;&lt;a href="prod.html?idp_=8" class="hrefch"&gt;Sony vaio i5&lt;/a&gt;&lt;/h4&gt;<br/>
+         &lt;h5&gt;$790&lt;/h5&gt;<br/>
+         &lt;p id="article" class="card-text"&gt;Sony is so confident that the VAIO S is a superior ultraportable laptop that the company proudly compares the notebook to Apple's 13-inch MacBook Pro. And in a lot of ways this notebook is better, thanks to a lighter weight.&lt;/p&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div class="col-lg-4 col-md-6 mb-4"&gt;<br/>
+       &lt;div class="card h-100"&gt;<br/>
+        &lt;a href="prod.html?idp_=9"&gt;&lt;img class="card-img-top img-fluid" src="imgs/sony_vaio_5.jpg" alt=""&gt;&lt;/a&gt;<br/>
+        &lt;div class="card-block"&gt;<br/>
+         &lt;h4 class="card-title"&gt;&lt;a href="prod.html?idp_=9" class="hrefch"&gt;Sony vaio i7 &lt;/a&gt;&lt;/h4&gt;<br/>
+         &lt;h5&gt;$790&lt;/h5&gt;<br/>
+         &lt;p id="article" class="card-text"&gt;REVIEW Sony is so confident that the VAIO S is a superior ultraportable laptop that the company proudly compares the notebook to Apple's 13-inch MacBook Pro. And in a lot of ways this notebook is better, thanks to a lighter weight, higher-resolution display, more storage space, and a Blu-ray drive.&lt;/p&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div class="col-lg-4 col-md-6 mb-4"&gt;<br/>
+       &lt;div class="card h-100"&gt;<br/>
+        &lt;a href="prod.html?idp_=11"&gt;&lt;img class="card-img-top img-fluid" src="imgs/macbook_air.jpg" alt=""&gt;&lt;/a&gt;<br/>
+        &lt;div class="card-block"&gt;<br/>
+         &lt;h4 class="card-title"&gt;&lt;a href="prod.html?idp_=11" class="hrefch"&gt;MacBook air&lt;/a&gt;&lt;/h4&gt;<br/>
+         &lt;h5&gt;$700&lt;/h5&gt;<br/>
+         &lt;p id="article" class="card-text"&gt;1.6GHz dual-core Intel Core i5 (Turbo Boost up to 2.7GHz) with 3MB shared L3 cache Configurable to 2.2GHz dual-core Intel Core i7 (Turbo Boost up to 3.2GHz) with 4MB shared L3 cache.&lt;/p&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div class="col-lg-4 col-md-6 mb-4"&gt;<br/>
+       &lt;div class="card h-100"&gt;<br/>
+        &lt;a href="prod.html?idp_=12"&gt;&lt;img class="card-img-top img-fluid" src="imgs/dell.jpg" alt=""&gt;&lt;/a&gt;<br/>
+        &lt;div class="card-block"&gt;<br/>
+         &lt;h4 class="card-title"&gt;&lt;a href="prod.html?idp_=12" class="hrefch"&gt;Dell i7 8gb&lt;/a&gt;&lt;/h4&gt;<br/>
+         &lt;h5&gt;$700&lt;/h5&gt;<br/>
+         &lt;p id="article" class="card-text"&gt;6th Generation Intel Core i7-6500U Dual-Core Processor 2.5 GHz (max boost speed up to 3.1GHz) 4MB L3 Cache, 8GB DDR4 1600 MHz, 1TB 5400 RPM HDD15.6 in Full HD LED-backlit touchscreen with Truelife (1920 x 1080), 10-finger multi-touch support, Intel HD Graphics 520 with shared graphics memory&lt;/p&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div class="col-lg-4 col-md-6 mb-4"&gt;<br/>
+       &lt;div class="card h-100"&gt;<br/>
+        &lt;a href="prod.html?idp_=13"&gt;&lt;img class="card-img-top img-fluid" src="imgs/dell.jpg" alt=""&gt;&lt;/a&gt;<br/>
+        &lt;div class="card-block"&gt;<br/>
+         &lt;h4 class="card-title"&gt;&lt;a href="prod.html?idp_=13" class="hrefch"&gt;2017 Dell 15.6 Inch&lt;/a&gt;&lt;/h4&gt;<br/>
+         &lt;h5&gt;$700&lt;/h5&gt;<br/>
+         &lt;p id="article" class="card-text"&gt;7th Gen Intel Core i7-7500U mobile processor 2.70 GHz with Turbo Boost Technology up to 3.50 GHz, Intel HD Graphics 62015.6 inch Full HD IPS TrueLife LED-backlit touchscreen (1920 x 1080), 10-finger multi-touch support, 360° flip-and-fold design,8GB DDR4 2400 MHz Memory, 1TB 5400 RPM HDD, No optical drive, 3 in 1 card reader (SD SDHC SDXC)&lt;/p&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div class="col-lg-4 col-md-6 mb-4"&gt;<br/>
+       &lt;div class="card h-100"&gt;<br/>
+        &lt;a href="prod.html?idp_=15"&gt;&lt;img class="card-img-top img-fluid" src="imgs/macbook_air.jpg" alt=""&gt;&lt;/a&gt;<br/>
+        &lt;div class="card-block"&gt;<br/>
+         &lt;h4 class="card-title"&gt;&lt;a href="prod.html?idp_=15" class="hrefch"&gt;MacBook Pro&lt;/a&gt;&lt;/h4&gt;<br/>
+         &lt;h5&gt;$1100&lt;/h5&gt;<br/>
+         &lt;p id="article" class="card-text"&gt;Apple has introduced three new versions of its MacBook Pro line, including a 13-inch and 15-inch model with the Touch Bar, a thin, multi-touch strip display that sits above the MacBook Pro's keyboard.&lt;/p&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;form name="frm" id="frm" style="float: right;" onsubmit="return false"&gt;&lt;!-- &lt;button type="button" id="next2" class="btn btn-success"&gt;Next &gt;&lt;/button&gt; --&gt;<br/>
+      &lt;ul class="pagination"&gt;<br/>
+       &lt;li class="page-item"&gt;&lt;button class="page-link" id="prev2" value="1"&gt;Previous&lt;/button&gt;&lt;/li&gt;<br/>
+       &lt;li class="page-item"&gt;&lt;button class="page-link" id="next2" value="9"&gt;Next&lt;/button&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;<br/>
+     &lt;/form&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt;<br/>
+  &lt;script src="node_modules/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="node_modules/video.js/dist/video.min.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="node_modules/videojs-contrib-hls/dist/videojs-contrib-hls.min.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="node_modules/tether/dist/js/tether.min.js"&gt;&lt;/script&gt;<br/>
+  &lt;script src="node_modules/bootstrap/dist/js/bootstrap.min.js"&gt;&lt;/script&gt;<br/>
+  &lt;script type="text/javascript" src="js/index.js"&gt;&lt;/script&gt;<br/>
+  &lt;div id="footc"&gt;<br/>
+   &lt;div id="fotcont" class="row"&gt;<br/>
+    &lt;div class="col-sm-4 col-lg-4 col-md-4"&gt;<br/>
+     &lt;div class="thumbnail"&gt;<br/>
+      &lt;div class="caption"&gt;<br/>
+       &lt;h4 class="grrrr"&gt;&lt;b&gt;About Us&lt;/b&gt;&lt;/h4&gt;<br/>
+       &lt;p&gt;We believe performance needs to be validated at every stage of the software development cycle and our open source compatible, massively scalable platform makes that a reality.&lt;/p&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="col-sm-3 col-lg-3 col-md-3"&gt;<br/>
+     &lt;div class="thumbnail"&gt;<br/>
+      &lt;div class="caption"&gt;<br/>
+       &lt;h4 class="grrrr"&gt;&lt;b&gt;Get in Touch&lt;/b&gt;&lt;/h4&gt;<br/>
+       &lt;p&gt;Address: 2390 El Camino Real&lt;/p&gt;<br/>
+       &lt;p&gt;Phone: +440 123456&lt;/p&gt;<br/>
+       &lt;p&gt;Email: demo@blazemeter.com&lt;/p&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="col-sm-4 col-lg-4 col-md-4"&gt;<br/>
+     &lt;div class="thumbnail"&gt;<br/>
+      &lt;div class="caption"&gt;<br/>
+       &lt;h4&gt;&lt;img width="50" height="50" style="margin-right:10px" src="bm.png"&gt; PRODUCT STORE&lt;/h4&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt;<br/>
+  &lt;footer class="py-5 bg-inverse"&gt;<br/>
+   &lt;p class="m-0 text-center text-white"&gt;Copyright © Product Store 2017&lt;/p&gt;<br/>
+  &lt;/footer&gt;<br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>

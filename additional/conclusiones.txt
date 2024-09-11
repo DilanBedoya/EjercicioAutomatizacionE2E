@@ -1,0 +1,17 @@
+---Hallazgos y Conclusiones del ejercicio---
+
+Hallazgos:
+1. Agregar dos productos al carrito: Durante la prueba de agregar dos productos al carrito, el sistema funcionó correctamente, añadiendo los productos seleccionados sin errores. Esto demuestra que la funcionalidad de agregar al carrito está operativa y cumple con su propósito.
+
+2. Visualización del carrito: Al visualizar el carrito después de añadir los productos, se verificó que ambos artículos estaban presentes, lo cual confirma que el sistema refleja adecuadamente los productos añadidos.
+
+3. Completar el formulario de compra: La prueba para completar el formulario de compra fue exitosa. Todos los campos requeridos se llenaron y se enviaron sin problemas, mostrando que el proceso de captura de datos del comprador es fluido.
+
+4. Finalizar la compra: La finalización del proceso de compra se realizó correctamente, mostrando un mensaje de confirmación que indica que la compra fue completada.
+
+Conclusiones:
+1. Correcto funcionamiento del flujo de compra: El sistema gestiona de manera efectiva todas las etapas del flujo de compra, desde agregar productos al carrito hasta finalizar el pedido.
+
+2. Pruebas Separadas: El flujo se diseñó utilizando Scenario Outlines para mejorar la interactividad y flexibilidad durante las pruebas. Se dividió cada escenario en dos casos de prueba relacionados, ya que uno influía en el resultado del otro, pero no afectaba el otro escenario. Esta separación permitió una mayor claridad y control sobre cada escenario, evitando que los resultados de una prueba afectaran la otra.
+
+3. Se realizó el ejercicio de Automatización E2E de la mejor manera posible, especificando cada detalle para evitar errores y entregar un excelente trabajo.

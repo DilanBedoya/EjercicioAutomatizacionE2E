@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Flujo de compra en DemoBlaze" skipped="0" tests="2" time="57.24" timestamp="2024-09-11 01:52:56"><testcase name="Agregar dos productos al carrito y visualizar Carrito"/><testcase name="Completar formulario de compra y finalizar compra"/></testsuite>

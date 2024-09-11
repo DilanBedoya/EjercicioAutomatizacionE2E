@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Serenity Training</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="41d4edf7061d8b0af682ad221e37b0fed2e1fa983ef9799a83a1dcf8bad0845e.html">Flujo De Compra En Demoblaze</a></span>
+                > <span class="truncate-60"><a
+                    href="2ee86b3d4ad689e6ec293b6143a104e4b2ccaa60f39bc7c34ccc8eac7d7738e0.html">Agregar dos productos al carrito y visualizar Carrito </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="bi bi-chat-text"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 11-09-2024 13:32</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <span class="story-header-title">Flujo De Compra En Demoblaze </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="70604b02425ac97a4425697e9f2159463ac41e8d27f1a6760d4ad40ef60f769c.html">Test Product And Car
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="4114d8bfcba86ba530d28d11f2df1a9086d8abcb3768b7a354e1897274bc6db8.html">Test Complete
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="6fe0671aeea9e76b6998ee682216d11c7748a4152740df0586f3c256ecb3f5da.html">Chrome
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="f55cf301e8f51d63aebeb8bc8dbe880df940586e2a502c7a3e24c2b639523f8f.html">Windows
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="5698da923f295f46ce5ab64ced2311fc60caa4e36b32112606d3adcfdce3f60b.html">30 To 60 Seconds
+                                        (Duration)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="59736924e81ea98f655ac8eba7cd96079d8d80131e0c4360daf32a724d0b38a0.html">Chrome, Windows
+                                </a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">Agregar dos productos al carrito y visualizar Carrito
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="story-title">
+        <h3>Scenario:</h3>
+        <div class="scenario">Given El "Cliente" está en la página principal de DemoBlaze<br>When selecciona la categoría "&lt;categoria1&gt;" para el primer producto<br>And selecciona el primer producto "&lt;producto1&gt;"<br>And agrega al carrito el primero producto<br>When selecciona la categoría "&lt;categoria2&gt;" para el segundo producto<br>And selecciona el segundo producto "&lt;producto2&gt;"<br>And agrega al carrito el segundo producto<br>Then se muestran los productos "&lt;producto1&gt;" y "&lt;producto2&gt;" en el carrito</div>
+    </div>
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="7ccf6bc96fd1fd1af600062417e07a54b438394b02aa51b2deb5bae09b8d2c26.png" title=" 1: Agregar dos productos al carrito y visualizar Carrito ({categoria1=Monitors, producto1=Apple monitor 24, categoria2=Laptops, producto2=MacBook air})" width="0"/>
+                <img src="7ccf6bc96fd1fd1af600062417e07a54b438394b02aa51b2deb5bae09b8d2c26.png" title=" Given El &quot;Cliente&quot; est&aacute; en la p&aacute;gina principal de DemoBlaze" width="0"/>
+                <img src="7ccf6bc96fd1fd1af600062417e07a54b438394b02aa51b2deb5bae09b8d2c26.png" title=" Cliente Inicia la p&aacute;gina webdriver.base.dashboard" width="0"/>
+                <img src="7ccf6bc96fd1fd1af600062417e07a54b438394b02aa51b2deb5bae09b8d2c26.png" title=" Cliente opens the browser at https://www.demoblaze.com/" width="0"/>
+                <img src="81ceded432f6377090e51539bbb5d28c0b43fbf2fd99c4c96f8e4138f3c3456f.png" title=" Cliente Inicia la p&aacute;gina webdriver.base.dashboard (completed)" width="0"/>
+                <img src="81ceded432f6377090e51539bbb5d28c0b43fbf2fd99c4c96f8e4138f3c3456f.png" title=" Given El &quot;Cliente&quot; est&aacute; en la p&aacute;gina principal de DemoBlaze (completed)" width="0"/>
+                <img src="81ceded432f6377090e51539bbb5d28c0b43fbf2fd99c4c96f8e4138f3c3456f.png" title=" When selecciona la categor&iacute;a &quot;Monitors&quot; para el primer producto" width="0"/>
+                <img src="81ceded432f6377090e51539bbb5d28c0b43fbf2fd99c4c96f8e4138f3c3456f.png" title=" Cliente select category" width="0"/>
+                <img src="81ceded432f6377090e51539bbb5d28c0b43fbf2fd99c4c96f8e4138f3c3456f.png" title=" Cliente clicks on Categor&iacute;a Monitors" width="0"/>
+                <img src="2554d14529cc28b38ea90cc7558ba8aab6309614935808068c56b0889e43cb87.png" title=" When selecciona la categor&iacute;a &quot;Monitors&quot; para el primer producto (completed)" width="0"/>
+                <img src="2554d14529cc28b38ea90cc7558ba8aab6309614935808068c56b0889e43cb87.png" title=" And selecciona el primer producto &quot;Apple monitor 24&quot;" width="0"/>
+                <img src="00f6895bbd59035ca8ba1cbeb64d9495e2cc65eecc39c123e647066ff810f624.png" title=" Cliente select products" width="0"/>
+                <img src="601bad5ffdc052c2c99f1587a6142d4c1f15e9c63c2de69b6a5d6b680c58fd4d.png" title=" Cliente clicks on Producto Apple monitor 24" width="0"/>
+                <img src="eb231d64daec3a26ea2916a4bb9ef55ae19eefa0d72a658f1d6c98fb08dddb24.png" title=" Cliente clicks on Producto Apple monitor 24 (completed)" width="0"/>
+                <img src="10d0d9a0789123105e282856db4a0043ff712ef58287c72d63649c9b96ed1c42.png" title=" Cliente select products (completed)" width="0"/>
+                <img src="10d0d9a0789123105e282856db4a0043ff712ef58287c72d63649c9b96ed1c42.png" title=" And selecciona el primer producto &quot;Apple monitor 24&quot; (completed)" width="0"/>
+                <img src="10d0d9a0789123105e282856db4a0043ff712ef58287c72d63649c9b96ed1c42.png" title=" And agrega al carrito el primero producto" width="0"/>
+                <img src="10d0d9a0789123105e282856db4a0043ff712ef58287c72d63649c9b96ed1c42.png" title=" Cliente add products" width="0"/>
+                <img src="10d0d9a0789123105e282856db4a0043ff712ef58287c72d63649c9b96ed1c42.png" title=" Cliente clicks on Bot&oacute;n de a&ntilde;adir al carrito" width="0"/>
+                <img src="098a0dc3238c70d02ecc9648e91569ceaab7dd479f5bbd7a6174fd5c086942d3.png" title=" Cliente clicks on Bot&oacute;n de a&ntilde;adir al carrito (completed)" width="0"/>
+                <img src="8b01651f81053068be873d0eb4e0ba0d681eeb3f7ed4d1ba2c8b76b58ec37f14.png" title=" Cliente Inicia la p&aacute;gina webdriver.base.dashboard" width="0"/>
+                <img src="8b01651f81053068be873d0eb4e0ba0d681eeb3f7ed4d1ba2c8b76b58ec37f14.png" title=" Cliente opens the browser at https://www.demoblaze.com/" width="0"/>
+                <img src="7ccf6bc96fd1fd1af600062417e07a54b438394b02aa51b2deb5bae09b8d2c26.png" title=" Cliente opens the browser at https://www.demoblaze.com/ (completed)" width="0"/>
+                <img src="3d57fb5aa80d2e22513d2d728b4368f21e04581ba72a934b10af9b7e9309462c.png" title=" Cliente Inicia la p&aacute;gina webdriver.base.dashboard (completed)" width="0"/>
+                <img src="3d57fb5aa80d2e22513d2d728b4368f21e04581ba72a934b10af9b7e9309462c.png" title=" And agrega al carrito el primero producto (completed)" width="0"/>
+                <img src="3d57fb5aa80d2e22513d2d728b4368f21e04581ba72a934b10af9b7e9309462c.png" title=" When selecciona la categor&iacute;a &quot;Laptops&quot; para el segundo producto" width="0"/>
+                <img src="3d57fb5aa80d2e22513d2d728b4368f21e04581ba72a934b10af9b7e9309462c.png" title=" Cliente select category" width="0"/>
+                <img src="3d57fb5aa80d2e22513d2d728b4368f21e04581ba72a934b10af9b7e9309462c.png" title=" Cliente clicks on Categor&iacute;a Laptops" width="0"/>
+                <img src="3d57fb5aa80d2e22513d2d728b4368f21e04581ba72a934b10af9b7e9309462c.png" title=" And selecciona el segundo producto &quot;MacBook air&quot;" width="0"/>
+                <img src="bb0ef4838ccb0fdb4164107bdc481acc72d73b4b339caaa01f99d3cf5484f6f9.png" title=" Cliente select products" width="0"/>
+                <img src="5feac31af68764c67a6e2b9ad72682893119af270762e8849682ecc5a6a32f4b.png" title=" Cliente clicks on Producto MacBook air" width="0"/>
+                <img src="eb231d64daec3a26ea2916a4bb9ef55ae19eefa0d72a658f1d6c98fb08dddb24.png" title=" Cliente clicks on Producto MacBook air (completed)" width="0"/>
+                <img src="9ee5abfb0d9d8e03aa092249d7f96741233b26c85892227cbe27f8cd356f98ee.png" title=" Cliente select products (completed)" width="0"/>
+                <img src="9ee5abfb0d9d8e03aa092249d7f96741233b26c85892227cbe27f8cd356f98ee.png" title=" And selecciona el segundo producto &quot;MacBook air&quot; (completed)" width="0"/>
+                <img src="9ee5abfb0d9d8e03aa092249d7f96741233b26c85892227cbe27f8cd356f98ee.png" title=" And agrega al carrito el segundo producto" width="0"/>
+                <img src="9ee5abfb0d9d8e03aa092249d7f96741233b26c85892227cbe27f8cd356f98ee.png" title=" Cliente add products" width="0"/>
+                <img src="9ee5abfb0d9d8e03aa092249d7f96741233b26c85892227cbe27f8cd356f98ee.png" title=" Cliente clicks on Bot&oacute;n de a&ntilde;adir al carrito" width="0"/>
+                <img src="62c90ca3cf463601755d6ac554570d4dce9083f94af71ab5bb5aea2de0a9bb33.png" title=" Cliente clicks on Bot&oacute;n de a&ntilde;adir al carrito (completed)" width="0"/>
+                <img src="e7b945b26b74d1990ba8a6119e950dbaeb71e65d6972e13bbbebd6d5461df5e4.png" title=" Cliente Inicia la p&aacute;gina webdriver.base.dashboard" width="0"/>
+                <img src="e7b945b26b74d1990ba8a6119e950dbaeb71e65d6972e13bbbebd6d5461df5e4.png" title=" Cliente opens the browser at https://www.demoblaze.com/" width="0"/>
+                <img src="7ccf6bc96fd1fd1af600062417e07a54b438394b02aa51b2deb5bae09b8d2c26.png" title=" Cliente opens the browser at https://www.demoblaze.com/ (completed)" width="0"/>
+                <img src="3d57fb5aa80d2e22513d2d728b4368f21e04581ba72a934b10af9b7e9309462c.png" title=" Cliente Inicia la p&aacute;gina webdriver.base.dashboard (completed)" width="0"/>
+                <img src="3d57fb5aa80d2e22513d2d728b4368f21e04581ba72a934b10af9b7e9309462c.png" title=" Cliente Inicia la p&aacute;gina webdriver.base.cart" width="0"/>
+                <img src="3d57fb5aa80d2e22513d2d728b4368f21e04581ba72a934b10af9b7e9309462c.png" title=" Cliente opens the browser at https://www.demoblaze.com/cart.html" width="0"/>
+                <img src="2e1b17a17721d05f95fd9cae3a32467b82b6f17890a9f01e22f4a436eeea8d83.png" title=" Cliente opens the browser at https://www.demoblaze.com/cart.html (completed)" width="0"/>
+                <img src="33492b883eebc2901c625ae9422491e29d8eb4c48e9254c747e3434385343247.png" title=" Cliente Inicia la p&aacute;gina webdriver.base.cart (completed)" width="0"/>
+                <img src="33492b883eebc2901c625ae9422491e29d8eb4c48e9254c747e3434385343247.png" title=" And agrega al carrito el segundo producto (completed)" width="0"/>
+                <img src="33492b883eebc2901c625ae9422491e29d8eb4c48e9254c747e3434385343247.png" title=" Then se muestran los productos &quot;Apple monitor 24&quot; y &quot;MacBook air&quot; en el carrito" width="0"/>
+                <img src="33492b883eebc2901c625ae9422491e29d8eb4c48e9254c747e3434385343247.png" title=" Then El t&amp;iacute;tulo del primer producto es visible should be ('Apple monitor 24' or 'MacBook air')" width="0"/>
+                <img src="33492b883eebc2901c625ae9422491e29d8eb4c48e9254c747e3434385343247.png" title=" Then El t&amp;iacute;tulo del segundo producto es visible should be ('Apple monitor 24' or 'MacBook air')" width="0"/>
+                <img src="33492b883eebc2901c625ae9422491e29d8eb4c48e9254c747e3434385343247.png" title=" 1: Agregar dos productos al carrito y visualizar Carrito ({categoria1=Monitors, producto1=Apple monitor 24, categoria2=Laptops, producto2=MacBook air}) (completed): <span class='success-color'>SUCCESS</span>" width="0"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 3.9.8</span>
+</div>
+</body>
+</html>
